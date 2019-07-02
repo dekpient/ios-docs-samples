@@ -19,9 +19,10 @@ import AVFoundation
 
 protocol AudioControllerDelegate {
   func processSampleData(_ data:Data) -> Void
+  func didFinishRecording(withSuccess success: Bool)
 }
 
-class AudioController {
+class AudioController: NSObject, AVAudioRecorderDelegate {
   var remoteIOUnit: AudioComponentInstance? // optional to allow it to be an inout argument
   var delegate : AudioControllerDelegate!
 
@@ -29,6 +30,66 @@ class AudioController {
 
   deinit {
     AudioComponentInstanceDispose(remoteIOUnit!);
+  }
+  
+  var audioFileName: URL!
+  
+  private var recordingSession: AVAudioSession!
+  private var audioRecorder: AVAudioRecorder!
+  
+  // MARK: - Public
+  
+  func requestRecordingPermission(completion: @escaping (Bool) -> Void) {
+    recordingSession = AVAudioSession.sharedInstance()
+    
+    do {
+      try recordingSession.setCategory(.playAndRecord)
+      try recordingSession.setActive(true)
+      recordingSession.requestRecordPermission() { allowed in
+        DispatchQueue.main.async {
+          if !allowed {
+            completion(allowed)
+            print("Failed to grant microphone recording permission!")
+          }
+        }
+      }
+    } catch {
+      print("Failed to configure audio recording session!")
+    }
+  }
+  
+  func startRecording() {
+    let filename = String(Int.random(in: 0 ..< 1000000))
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    audioFileName = paths[0].appendingPathComponent("\(filename).caf")
+    
+    let recordSettings: [String: Any] = [
+      AVSampleRateKey: 16_000,
+      AVNumberOfChannelsKey: 1,
+      AVEncoderAudioQualityKey: AVAudioQuality.max.rawValue,
+      AVEncoderBitRateKey: 16,
+    ]
+    
+    do {
+      audioRecorder = try AVAudioRecorder(url: audioFileName, settings: recordSettings)
+      audioRecorder.delegate = self
+      audioRecorder.record()
+    } catch {
+      print("Error starting recording session: \(error.localizedDescription)")
+    }
+  }
+  
+  func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+    if !flag {
+      finishRecording(success: false)
+    }
+  }
+  
+  func finishRecording(success: Bool) {
+    print("Recording finished with success: \(success)")
+    audioRecorder.stop()
+    audioRecorder = nil
+    delegate?.didFinishRecording(withSuccess: success)
   }
 
   func prepare(specifiedSampleRate: Int) -> OSStatus {

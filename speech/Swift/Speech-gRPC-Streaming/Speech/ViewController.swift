@@ -20,11 +20,14 @@ let SAMPLE_RATE = 16000
 
 class ViewController : UIViewController, AudioControllerDelegate {
   @IBOutlet weak var textView: UITextView!
-  var audioData: NSMutableData!
+  var audioData: Data!
 
   override func viewDidLoad() {
     super.viewDidLoad()
     AudioController.sharedInstance.delegate = self
+    AudioController.sharedInstance.requestRecordingPermission { [weak self] (givenAccess) in
+      print("Requested permission \(givenAccess)")
+    }
   }
 
   @IBAction func recordAudio(_ sender: NSObject) {
@@ -34,15 +37,32 @@ class ViewController : UIViewController, AudioControllerDelegate {
     } catch {
 
     }
-    audioData = NSMutableData()
+    audioData = Data()
     _ = AudioController.sharedInstance.prepare(specifiedSampleRate: SAMPLE_RATE)
     SpeechRecognitionService.sharedInstance.sampleRate = SAMPLE_RATE
     _ = AudioController.sharedInstance.start()
+    
+    // Long running / Recognize
+//    AudioController.sharedInstance.startRecording()
   }
 
   @IBAction func stopAudio(_ sender: NSObject) {
     _ = AudioController.sharedInstance.stop()
     SpeechRecognitionService.sharedInstance.stopStreaming()
+    
+    // Long running / Recognise
+//    AudioController.sharedInstance.finishRecording(success: true)
+//    let data = try! Data(contentsOf: AudioController.sharedInstance.audioFileName)
+    
+//    print("------- Long Running Recognize --------")
+//    SpeechRecognitionService.sharedInstance.longRunningRecognize(data)
+    
+//    print("-------Recognize --------")
+//    SpeechRecognitionService.sharedInstance.recognize(data)
+  }
+  
+  func didFinishRecording(withSuccess success: Bool) {
+    print("Recording finished: \(success)")
   }
 
   func processSampleData(_ data: Data) -> Void {
@@ -53,9 +73,9 @@ class ViewController : UIViewController, AudioControllerDelegate {
       * Double(SAMPLE_RATE) /* samples/second */
       * 2 /* bytes/sample */);
 
-    if (audioData.length > chunkSize) {
+    if (audioData.count > chunkSize) {
       SpeechRecognitionService.sharedInstance.streamAudioData(audioData)
-      self.audioData = NSMutableData()
+      self.audioData = Data()
     }
   }
 }

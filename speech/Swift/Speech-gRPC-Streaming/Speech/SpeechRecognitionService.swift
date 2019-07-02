@@ -27,13 +27,17 @@ class SpeechRecognitionService {
 
   private var client : Google_Cloud_Speech_V1p1beta1_SpeechServiceClient!
   private var call : Google_Cloud_Speech_V1p1beta1_SpeechStreamingRecognizeCall!
+  private var operationsClient: Google_Longrunning_OperationsServiceClient!
 
   static let sharedInstance = SpeechRecognitionService()
 
-  func streamAudioData(_ audioData: NSData) {
+  func streamAudioData(_ audioData: Data) {
     if (!streaming) {
+//      let u = Bundle.main.url(forResource: "roots", withExtension: "pem")!
+//      let certificate = try! String(contentsOf: u)
+      
       // if we aren't already streaming, set up a gRPC connection
-      client = Google_Cloud_Speech_V1p1beta1_SpeechServiceClient(address: HOST, secure: true)
+      client = Google_Cloud_Speech_V1p1beta1_SpeechServiceClient(address: HOST) //, certificates: certificate)
       client.metadata = try! Metadata([
         "x-goog-api-key": API_KEY,
         "x-ios-bundle-identifier": Bundle.main.bundleIdentifier ?? "" // com.google.speech-grpc-streaming
@@ -74,6 +78,96 @@ class SpeechRecognitionService {
     streamingRecognizeRequest.audioContent = audioData as Data
     do {
       try call.send(streamingRecognizeRequest)
+    } catch {
+      print(error.localizedDescription)
+    }
+  }
+  
+  func longRunningRecognize(_ audioData: Data) {
+    do {
+      let metadata = try! Metadata([
+        "x-goog-api-key": API_KEY,
+        "x-ios-bundle-identifier": Bundle.main.bundleIdentifier ?? "" // com.google.speech-grpc-streaming
+      ])
+      client = Google_Cloud_Speech_V1p1beta1_SpeechServiceClient(address: HOST)
+      client.metadata = metadata
+      operationsClient = Google_Longrunning_OperationsServiceClient(address: HOST)
+      operationsClient.metadata = metadata
+      
+      // send an initial request message to configure the service
+      var recognitionConfig = Google_Cloud_Speech_V1p1beta1_RecognitionConfig()
+      recognitionConfig.encoding = .linear16
+      recognitionConfig.sampleRateHertz = Int32(sampleRate)
+      recognitionConfig.languageCode = "en-US"
+      recognitionConfig.enableWordTimeOffsets = true
+      
+      var audio = Google_Cloud_Speech_V1p1beta1_RecognitionAudio()
+      audio.content = audioData
+      
+      var longRunningRequest = Google_Cloud_Speech_V1p1beta1_LongRunningRecognizeRequest()
+      longRunningRequest.config = recognitionConfig
+      longRunningRequest.audio = audio
+      
+      print("Sending audio data")
+      _ = try client.longRunningRecognize(longRunningRequest) { (longRunningOperation, callResult) in
+        print(longRunningOperation)
+        print(callResult)
+        guard callResult.success else {
+          print(callResult.description)
+          return
+        }
+        
+        DispatchQueue.global().async { [weak self] in
+          guard var operation = longRunningOperation else {
+            print("No OP")
+            return
+          }
+          repeat {
+            if let op = self?.pollOperation(withName: operation.name) {
+              operation = op
+            }
+          } while !operation.done
+          print("Done")
+          print(operation.result!)
+          print(operation.error)
+        }
+      }
+    } catch {
+      print(error.localizedDescription)
+    }
+  }
+  
+  private func pollOperation(withName name: String) -> Google_Longrunning_Operation? {
+    var getOpRequest = Google_Longrunning_GetOperationRequest()
+    getOpRequest.name = name
+    return try? operationsClient.getOperation(getOpRequest)
+  }
+  
+  func recognize(_ audioData: Data) {
+    do {
+      client = Google_Cloud_Speech_V1p1beta1_SpeechServiceClient(address: HOST)
+      client.metadata = try! Metadata([
+        "x-goog-api-key": API_KEY,
+        "x-ios-bundle-identifier": Bundle.main.bundleIdentifier ?? "" // com.google.speech-grpc-streaming
+      ])
+      
+      // send an initial request message to configure the service
+      var recognitionConfig = Google_Cloud_Speech_V1p1beta1_RecognitionConfig()
+      recognitionConfig.encoding = .linear16
+      recognitionConfig.sampleRateHertz = Int32(sampleRate)
+      recognitionConfig.languageCode = "en-US"
+      recognitionConfig.maxAlternatives = 30
+
+      var audio = Google_Cloud_Speech_V1p1beta1_RecognitionAudio()
+      audio.content = audioData
+      
+      var recognizeRequest = Google_Cloud_Speech_V1p1beta1_RecognizeRequest()
+      recognizeRequest.config = recognitionConfig
+      recognizeRequest.audio = audio
+      
+      print("Sending audio data")
+      let result = try client.recognize(recognizeRequest)
+      print(result)
     } catch {
       print(error.localizedDescription)
     }

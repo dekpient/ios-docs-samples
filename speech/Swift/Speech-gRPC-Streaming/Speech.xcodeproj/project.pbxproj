@@ -35,6 +35,7 @@
 		7F53569222CB4AD3002A0095 /* CgRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F53568E22CB4AD2002A0095 /* CgRPC.framework */; };
 		7F53569322CB4AD3002A0095 /* BoringSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F53568F22CB4AD2002A0095 /* BoringSSL.framework */; };
 		7F53569422CB4AD3002A0095 /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F53569022CB4AD2002A0095 /* SwiftProtobuf.framework */; };
+		7F53569622CB5460002A0095 /* roots.pem in Resources */ = {isa = PBXBuildFile; fileRef = 7F53569522CB5460002A0095 /* roots.pem */; };
 		D31E0EB81D778A56006A50AB /* SpeechRecognitionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E0EB71D778A56006A50AB /* SpeechRecognitionService.swift */; };
 		D31E0EBA1D77AA2F006A50AB /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E0EB91D77AA2F006A50AB /* AudioController.swift */; };
 		D34C17D91C948F5800D69BCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D34C17D81C948F5800D69BCA /* Assets.xcassets */; };
@@ -75,6 +76,7 @@
 		7F53568E22CB4AD2002A0095 /* CgRPC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CgRPC.framework; path = Carthage/Build/iOS/CgRPC.framework; sourceTree = "<group>"; };
 		7F53568F22CB4AD2002A0095 /* BoringSSL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BoringSSL.framework; path = Carthage/Build/iOS/BoringSSL.framework; sourceTree = "<group>"; };
 		7F53569022CB4AD2002A0095 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtobuf.framework; path = Carthage/Build/iOS/SwiftProtobuf.framework; sourceTree = "<group>"; };
+		7F53569522CB5460002A0095 /* roots.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = roots.pem; sourceTree = "<group>"; };
 		D31E0EB71D778A56006A50AB /* SpeechRecognitionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionService.swift; sourceTree = "<group>"; };
 		D31E0EB91D77AA2F006A50AB /* AudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
 		D34C17C91C948F5700D69BCA /* Speech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Speech.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,6 +229,7 @@
 				D31E0EB91D77AA2F006A50AB /* AudioController.swift */,
 				D34C17DD1C948F5800D69BCA /* Info.plist */,
 				D34C17DA1C948F5800D69BCA /* LaunchScreen.storyboard */,
+				7F53569522CB5460002A0095 /* roots.pem */,
 				D392D9851C94937D002F5132 /* Main.storyboard */,
 				D31E0EB71D778A56006A50AB /* SpeechRecognitionService.swift */,
 				D34C17CC1C948F5700D69BCA /* Supporting Files */,
@@ -302,6 +305,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F53569622CB5460002A0095 /* roots.pem in Resources */,
 				D392D9861C94937D002F5132 /* Main.storyboard in Resources */,
 				D34C17DC1C948F5800D69BCA /* LaunchScreen.storyboard in Resources */,
 				D34C17D91C948F5800D69BCA /* Assets.xcassets in Resources */,
