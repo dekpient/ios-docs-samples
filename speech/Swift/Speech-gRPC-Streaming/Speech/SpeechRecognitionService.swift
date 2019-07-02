@@ -14,75 +14,76 @@
 // limitations under the License.
 //
 import Foundation
-import googleapis
+import SwiftGRPC
 
 let API_KEY : String = "YOUR_API_KEY"
 let HOST = "speech.googleapis.com"
 
-typealias SpeechRecognitionCompletionHandler = (StreamingRecognizeResponse?, NSError?) -> (Void)
+typealias SpeechRecognitionCompletionHandler = () -> (Void)
 
 class SpeechRecognitionService {
   var sampleRate: Int = 16000
   private var streaming = false
 
-  private var client : Speech!
-  private var writer : GRXBufferedPipe!
-  private var call : GRPCProtoCall!
+  private var client : Google_Cloud_Speech_V1p1beta1_SpeechServiceClient!
+  private var call : Google_Cloud_Speech_V1p1beta1_SpeechStreamingRecognizeCall!
 
   static let sharedInstance = SpeechRecognitionService()
 
-  func streamAudioData(_ audioData: NSData, completion: @escaping SpeechRecognitionCompletionHandler) {
+  func streamAudioData(_ audioData: NSData) {
     if (!streaming) {
       // if we aren't already streaming, set up a gRPC connection
-      client = Speech(host:HOST)
-      writer = GRXBufferedPipe()
-      call = client.rpcToStreamingRecognize(withRequestsWriter: writer,
-                                            eventHandler:
-        { (done, response, error) in
-                                              completion(response, error as? NSError)
-      })
-      // authenticate using an API key obtained from the Google Cloud Console
-      call.requestHeaders.setObject(NSString(string:API_KEY),
-                                    forKey:NSString(string:"X-Goog-Api-Key"))
-      // if the API key has a bundle ID restriction, specify the bundle ID like this
-      call.requestHeaders.setObject(NSString(string:Bundle.main.bundleIdentifier!),
-                                    forKey:NSString(string:"X-Ios-Bundle-Identifier"))
+      client = Google_Cloud_Speech_V1p1beta1_SpeechServiceClient(address: HOST, secure: true)
+      client.metadata = try! Metadata([
+        "x-goog-api-key": API_KEY,
+        "x-ios-bundle-identifier": Bundle.main.bundleIdentifier ?? "" // com.google.speech-grpc-streaming
+        ])
+      call = try! client.streamingRecognize { (result) in
+        print("Result code: \(result.statusCode)")
+        print("Result description: \(result.description)")
+        print("Metadata: \(String(describing: result.initialMetadata))")
+        print("Status message: \(result.statusMessage ?? "Error")")
+        print("Obj description: \(String(describing: result))")
+        print("=============================")
+        self.streaming = false
+      }
 
-      print("HEADERS:\(call.requestHeaders)")
-
-      call.start()
       streaming = true
-
       // send an initial request message to configure the service
-      let recognitionConfig = RecognitionConfig()
-      recognitionConfig.encoding =  .linear16
+      var recognitionConfig = Google_Cloud_Speech_V1p1beta1_RecognitionConfig()
+      recognitionConfig.encoding = .linear16
       recognitionConfig.sampleRateHertz = Int32(sampleRate)
       recognitionConfig.languageCode = "en-US"
       recognitionConfig.maxAlternatives = 30
       recognitionConfig.enableWordTimeOffsets = true
 
-      let streamingRecognitionConfig = StreamingRecognitionConfig()
+      var streamingRecognitionConfig = Google_Cloud_Speech_V1p1beta1_StreamingRecognitionConfig()
       streamingRecognitionConfig.config = recognitionConfig
       streamingRecognitionConfig.singleUtterance = false
       streamingRecognitionConfig.interimResults = true
 
-      let streamingRecognizeRequest = StreamingRecognizeRequest()
+      var streamingRecognizeRequest = Google_Cloud_Speech_V1p1beta1_StreamingRecognizeRequest()
       streamingRecognizeRequest.streamingConfig = streamingRecognitionConfig
 
-      writer.writeValue(streamingRecognizeRequest)
+      try! call.send(streamingRecognizeRequest)
+      print("Streaming")
     }
 
     // send a request message containing the audio data
-    let streamingRecognizeRequest = StreamingRecognizeRequest()
+    var streamingRecognizeRequest = Google_Cloud_Speech_V1p1beta1_StreamingRecognizeRequest()
     streamingRecognizeRequest.audioContent = audioData as Data
-    writer.writeValue(streamingRecognizeRequest)
+    do {
+      try call.send(streamingRecognizeRequest)
+    } catch {
+      print(error.localizedDescription)
+    }
   }
 
   func stopStreaming() {
     if (!streaming) {
       return
     }
-    writer.finishWithError(nil)
+    print("Stopped")
     streaming = false
   }
 

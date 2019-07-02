@@ -7,7 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C450CC6320CA9890051ABAF /* Pods_Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B7F558BD8BC89862C8C277 /* Pods_Speech.framework */; };
+		7F53567022CB45F1002A0095 /* operations.proto in Sources */ = {isa = PBXBuildFile; fileRef = 7F53564C22CB45F0002A0095 /* operations.proto */; };
+		7F53567122CB45F1002A0095 /* operations.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53564D22CB45F0002A0095 /* operations.grpc.swift */; };
+		7F53567322CB45F1002A0095 /* operations.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53564F22CB45F0002A0095 /* operations.pb.swift */; };
+		7F53567722CB45F1002A0095 /* cloud_speech.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53565722CB45F0002A0095 /* cloud_speech.grpc.swift */; };
+		7F53567822CB45F1002A0095 /* cloud_speech.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53565822CB45F0002A0095 /* cloud_speech.pb.swift */; };
+		7F53567922CB45F1002A0095 /* cloud_speech.proto in Sources */ = {isa = PBXBuildFile; fileRef = 7F53565922CB45F0002A0095 /* cloud_speech.proto */; };
+		7F53567A22CB45F1002A0095 /* client.proto in Sources */ = {isa = PBXBuildFile; fileRef = 7F53565B22CB45F0002A0095 /* client.proto */; };
+		7F53567B22CB45F1002A0095 /* http.proto in Sources */ = {isa = PBXBuildFile; fileRef = 7F53565C22CB45F0002A0095 /* http.proto */; };
+		7F53567C22CB45F1002A0095 /* annotations.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53565D22CB45F0002A0095 /* annotations.pb.swift */; };
+		7F53567D22CB45F1002A0095 /* monitored_resource.proto in Sources */ = {isa = PBXBuildFile; fileRef = 7F53565E22CB45F0002A0095 /* monitored_resource.proto */; };
+		7F53567E22CB45F1002A0095 /* http.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53565F22CB45F0002A0095 /* http.pb.swift */; };
+		7F53567F22CB45F1002A0095 /* annotations.proto in Sources */ = {isa = PBXBuildFile; fileRef = 7F53566022CB45F0002A0095 /* annotations.proto */; };
+		7F53568022CB45F1002A0095 /* monitored_resource.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53566122CB45F0002A0095 /* monitored_resource.pb.swift */; };
+		7F53568122CB45F1002A0095 /* label.proto in Sources */ = {isa = PBXBuildFile; fileRef = 7F53566222CB45F0002A0095 /* label.proto */; };
+		7F53568222CB45F1002A0095 /* label.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53566322CB45F0002A0095 /* label.pb.swift */; };
+		7F53568322CB45F1002A0095 /* client.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53566422CB45F0002A0095 /* client.pb.swift */; };
+		7F53568422CB45F1002A0095 /* code.proto in Sources */ = {isa = PBXBuildFile; fileRef = 7F53566622CB45F1002A0095 /* code.proto */; };
+		7F53568522CB45F1002A0095 /* status.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53566722CB45F1002A0095 /* status.pb.swift */; };
+		7F53568622CB45F1002A0095 /* code.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53566822CB45F1002A0095 /* code.pb.swift */; };
+		7F53568722CB45F1002A0095 /* error_details.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53566922CB45F1002A0095 /* error_details.pb.swift */; };
+		7F53568822CB45F1002A0095 /* status.proto in Sources */ = {isa = PBXBuildFile; fileRef = 7F53566A22CB45F1002A0095 /* status.proto */; };
+		7F53568A22CB45F1002A0095 /* error_details.proto in Sources */ = {isa = PBXBuildFile; fileRef = 7F53566C22CB45F1002A0095 /* error_details.proto */; };
+		7F53568B22CB45F1002A0095 /* descriptor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53566E22CB45F1002A0095 /* descriptor.pb.swift */; };
+		7F53568C22CB45F1002A0095 /* descriptor.proto in Sources */ = {isa = PBXBuildFile; fileRef = 7F53566F22CB45F1002A0095 /* descriptor.proto */; };
+		7F53569122CB4AD3002A0095 /* SwiftGRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F53568D22CB4AD2002A0095 /* SwiftGRPC.framework */; };
+		7F53569222CB4AD3002A0095 /* CgRPC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F53568E22CB4AD2002A0095 /* CgRPC.framework */; };
+		7F53569322CB4AD3002A0095 /* BoringSSL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F53568F22CB4AD2002A0095 /* BoringSSL.framework */; };
+		7F53569422CB4AD3002A0095 /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F53569022CB4AD2002A0095 /* SwiftProtobuf.framework */; };
 		D31E0EB81D778A56006A50AB /* SpeechRecognitionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E0EB71D778A56006A50AB /* SpeechRecognitionService.swift */; };
 		D31E0EBA1D77AA2F006A50AB /* AudioController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E0EB91D77AA2F006A50AB /* AudioController.swift */; };
 		D34C17D91C948F5800D69BCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D34C17D81C948F5800D69BCA /* Assets.xcassets */; };
@@ -18,11 +45,36 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		54C3D1E96C8C43AB14662311 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E83ACE29B0D0DF0085BA8F2 /* Pods-Speech.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Speech.release.xcconfig"; path = "Pods/Target Support Files/Pods-Speech/Pods-Speech.release.xcconfig"; sourceTree = "<group>"; };
-		6C682F8DD9C94E41979FE816 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		C0B7F558BD8BC89862C8C277 /* Pods_Speech.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Speech.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2D2368DBC8898A52FE6113B /* Pods-Speech.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Speech.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Speech/Pods-Speech.debug.xcconfig"; sourceTree = "<group>"; };
+		7F53564C22CB45F0002A0095 /* operations.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = operations.proto; sourceTree = "<group>"; };
+		7F53564D22CB45F0002A0095 /* operations.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = operations.grpc.swift; sourceTree = "<group>"; };
+		7F53564E22CB45F0002A0095 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7F53564F22CB45F0002A0095 /* operations.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = operations.pb.swift; sourceTree = "<group>"; };
+		7F53565722CB45F0002A0095 /* cloud_speech.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cloud_speech.grpc.swift; sourceTree = "<group>"; };
+		7F53565822CB45F0002A0095 /* cloud_speech.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cloud_speech.pb.swift; sourceTree = "<group>"; };
+		7F53565922CB45F0002A0095 /* cloud_speech.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = cloud_speech.proto; sourceTree = "<group>"; };
+		7F53565B22CB45F0002A0095 /* client.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = client.proto; sourceTree = "<group>"; };
+		7F53565C22CB45F0002A0095 /* http.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = http.proto; sourceTree = "<group>"; };
+		7F53565D22CB45F0002A0095 /* annotations.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = annotations.pb.swift; sourceTree = "<group>"; };
+		7F53565E22CB45F0002A0095 /* monitored_resource.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = monitored_resource.proto; sourceTree = "<group>"; };
+		7F53565F22CB45F0002A0095 /* http.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = http.pb.swift; sourceTree = "<group>"; };
+		7F53566022CB45F0002A0095 /* annotations.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = annotations.proto; sourceTree = "<group>"; };
+		7F53566122CB45F0002A0095 /* monitored_resource.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = monitored_resource.pb.swift; sourceTree = "<group>"; };
+		7F53566222CB45F0002A0095 /* label.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = label.proto; sourceTree = "<group>"; };
+		7F53566322CB45F0002A0095 /* label.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = label.pb.swift; sourceTree = "<group>"; };
+		7F53566422CB45F0002A0095 /* client.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = client.pb.swift; sourceTree = "<group>"; };
+		7F53566622CB45F1002A0095 /* code.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = code.proto; sourceTree = "<group>"; };
+		7F53566722CB45F1002A0095 /* status.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = status.pb.swift; sourceTree = "<group>"; };
+		7F53566822CB45F1002A0095 /* code.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = code.pb.swift; sourceTree = "<group>"; };
+		7F53566922CB45F1002A0095 /* error_details.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = error_details.pb.swift; sourceTree = "<group>"; };
+		7F53566A22CB45F1002A0095 /* status.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = status.proto; sourceTree = "<group>"; };
+		7F53566B22CB45F1002A0095 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		7F53566C22CB45F1002A0095 /* error_details.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = error_details.proto; sourceTree = "<group>"; };
+		7F53566E22CB45F1002A0095 /* descriptor.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = descriptor.pb.swift; sourceTree = "<group>"; };
+		7F53566F22CB45F1002A0095 /* descriptor.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = descriptor.proto; sourceTree = "<group>"; };
+		7F53568D22CB4AD2002A0095 /* SwiftGRPC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftGRPC.framework; path = Carthage/Build/iOS/SwiftGRPC.framework; sourceTree = "<group>"; };
+		7F53568E22CB4AD2002A0095 /* CgRPC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CgRPC.framework; path = Carthage/Build/iOS/CgRPC.framework; sourceTree = "<group>"; };
+		7F53568F22CB4AD2002A0095 /* BoringSSL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BoringSSL.framework; path = Carthage/Build/iOS/BoringSSL.framework; sourceTree = "<group>"; };
+		7F53569022CB4AD2002A0095 /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtobuf.framework; path = Carthage/Build/iOS/SwiftProtobuf.framework; sourceTree = "<group>"; };
 		D31E0EB71D778A56006A50AB /* SpeechRecognitionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionService.swift; sourceTree = "<group>"; };
 		D31E0EB91D77AA2F006A50AB /* AudioController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioController.swift; sourceTree = "<group>"; };
 		D34C17C91C948F5700D69BCA /* Speech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Speech.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,10 +82,8 @@
 		D34C17DB1C948F5800D69BCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D34C17DD1C948F5800D69BCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D392D9851C94937D002F5132 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		D3E34E9F1D77541C00EF755D /* Speech-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Speech-Bridging-Header.h"; sourceTree = "<group>"; };
 		D3E34EA01D77541D00EF755D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3E34EA41D7757CC00EF755D /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F3215BCD5D87DFF7F2965B8A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +91,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C450CC6320CA9890051ABAF /* Pods_Speech.framework in Frameworks */,
+				7F53569122CB4AD3002A0095 /* SwiftGRPC.framework in Frameworks */,
+				7F53569222CB4AD3002A0095 /* CgRPC.framework in Frameworks */,
+				7F53569322CB4AD3002A0095 /* BoringSSL.framework in Frameworks */,
+				7F53569422CB4AD3002A0095 /* SwiftProtobuf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,10 +104,101 @@
 		32C6BA1B2FA20A9904F13B95 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				54C3D1E96C8C43AB14662311 /* libPods.a */,
-				C0B7F558BD8BC89862C8C277 /* Pods_Speech.framework */,
+				7F53568F22CB4AD2002A0095 /* BoringSSL.framework */,
+				7F53568E22CB4AD2002A0095 /* CgRPC.framework */,
+				7F53568D22CB4AD2002A0095 /* SwiftGRPC.framework */,
+				7F53569022CB4AD2002A0095 /* SwiftProtobuf.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7F53564A22CB45F0002A0095 /* google */ = {
+			isa = PBXGroup;
+			children = (
+				7F53564B22CB45F0002A0095 /* longrunning */,
+				7F53565022CB45F0002A0095 /* cloud */,
+				7F53565A22CB45F0002A0095 /* api */,
+				7F53566522CB45F1002A0095 /* rpc */,
+				7F53566D22CB45F1002A0095 /* protobuf */,
+			);
+			path = google;
+			sourceTree = SOURCE_ROOT;
+		};
+		7F53564B22CB45F0002A0095 /* longrunning */ = {
+			isa = PBXGroup;
+			children = (
+				7F53564C22CB45F0002A0095 /* operations.proto */,
+				7F53564D22CB45F0002A0095 /* operations.grpc.swift */,
+				7F53564E22CB45F0002A0095 /* README.md */,
+				7F53564F22CB45F0002A0095 /* operations.pb.swift */,
+			);
+			path = longrunning;
+			sourceTree = "<group>";
+		};
+		7F53565022CB45F0002A0095 /* cloud */ = {
+			isa = PBXGroup;
+			children = (
+				7F53565122CB45F0002A0095 /* speech */,
+			);
+			path = cloud;
+			sourceTree = "<group>";
+		};
+		7F53565122CB45F0002A0095 /* speech */ = {
+			isa = PBXGroup;
+			children = (
+				7F53565622CB45F0002A0095 /* v1p1beta1 */,
+			);
+			path = speech;
+			sourceTree = "<group>";
+		};
+		7F53565622CB45F0002A0095 /* v1p1beta1 */ = {
+			isa = PBXGroup;
+			children = (
+				7F53565722CB45F0002A0095 /* cloud_speech.grpc.swift */,
+				7F53565822CB45F0002A0095 /* cloud_speech.pb.swift */,
+				7F53565922CB45F0002A0095 /* cloud_speech.proto */,
+			);
+			path = v1p1beta1;
+			sourceTree = "<group>";
+		};
+		7F53565A22CB45F0002A0095 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				7F53565B22CB45F0002A0095 /* client.proto */,
+				7F53565C22CB45F0002A0095 /* http.proto */,
+				7F53565D22CB45F0002A0095 /* annotations.pb.swift */,
+				7F53565E22CB45F0002A0095 /* monitored_resource.proto */,
+				7F53565F22CB45F0002A0095 /* http.pb.swift */,
+				7F53566022CB45F0002A0095 /* annotations.proto */,
+				7F53566122CB45F0002A0095 /* monitored_resource.pb.swift */,
+				7F53566222CB45F0002A0095 /* label.proto */,
+				7F53566322CB45F0002A0095 /* label.pb.swift */,
+				7F53566422CB45F0002A0095 /* client.pb.swift */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		7F53566522CB45F1002A0095 /* rpc */ = {
+			isa = PBXGroup;
+			children = (
+				7F53566622CB45F1002A0095 /* code.proto */,
+				7F53566722CB45F1002A0095 /* status.pb.swift */,
+				7F53566822CB45F1002A0095 /* code.pb.swift */,
+				7F53566922CB45F1002A0095 /* error_details.pb.swift */,
+				7F53566A22CB45F1002A0095 /* status.proto */,
+				7F53566B22CB45F1002A0095 /* README.md */,
+				7F53566C22CB45F1002A0095 /* error_details.proto */,
+			);
+			path = rpc;
+			sourceTree = "<group>";
+		};
+		7F53566D22CB45F1002A0095 /* protobuf */ = {
+			isa = PBXGroup;
+			children = (
+				7F53566E22CB45F1002A0095 /* descriptor.pb.swift */,
+				7F53566F22CB45F1002A0095 /* descriptor.proto */,
+			);
+			path = protobuf;
 			sourceTree = "<group>";
 		};
 		D34C17C01C948F5700D69BCA = {
@@ -62,7 +206,6 @@
 			children = (
 				D34C17CB1C948F5700D69BCA /* Speech */,
 				D34C17CA1C948F5700D69BCA /* Products */,
-				F657FA334EB8D9ABF1ACF569 /* Pods */,
 				32C6BA1B2FA20A9904F13B95 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -79,12 +222,12 @@
 			isa = PBXGroup;
 			children = (
 				D3E34EA01D77541D00EF755D /* AppDelegate.swift */,
+				7F53564A22CB45F0002A0095 /* google */,
 				D34C17D81C948F5800D69BCA /* Assets.xcassets */,
 				D31E0EB91D77AA2F006A50AB /* AudioController.swift */,
 				D34C17DD1C948F5800D69BCA /* Info.plist */,
 				D34C17DA1C948F5800D69BCA /* LaunchScreen.storyboard */,
 				D392D9851C94937D002F5132 /* Main.storyboard */,
-				D3E34E9F1D77541C00EF755D /* Speech-Bridging-Header.h */,
 				D31E0EB71D778A56006A50AB /* SpeechRecognitionService.swift */,
 				D34C17CC1C948F5700D69BCA /* Supporting Files */,
 				D3E34EA41D7757CC00EF755D /* ViewController.swift */,
@@ -99,17 +242,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		F657FA334EB8D9ABF1ACF569 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F3215BCD5D87DFF7F2965B8A /* Pods.debug.xcconfig */,
-				6C682F8DD9C94E41979FE816 /* Pods.release.xcconfig */,
-				C2D2368DBC8898A52FE6113B /* Pods-Speech.debug.xcconfig */,
-				5E83ACE29B0D0DF0085BA8F2 /* Pods-Speech.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -117,12 +249,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D34C17E01C948F5800D69BCA /* Build configuration list for PBXNativeTarget "Speech" */;
 			buildPhases = (
-				D7376F491EC06AD174E07DB4 /* [CP] Check Pods Manifest.lock */,
 				D34C17C51C948F5700D69BCA /* Sources */,
 				D34C17C61C948F5700D69BCA /* Frameworks */,
 				D34C17C71C948F5700D69BCA /* Resources */,
-				A6C1304F9E6165DD748FC67B /* [CP] Embed Pods Frameworks */,
-				D8EE167099E5A7E524284D70 /* [CP] Copy Pods Resources */,
+				A6C1304F9E6165DD748FC67B /* Copy */,
 			);
 			buildRules = (
 			);
@@ -153,6 +283,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -180,49 +311,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		A6C1304F9E6165DD748FC67B /* [CP] Embed Pods Frameworks */ = {
+		A6C1304F9E6165DD748FC67B /* Copy */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/BoringSSL.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CgRPC.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftGRPC.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftProtobuf.framework",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = Copy;
 			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/BoringSSL.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/CgRPC.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftGRPC.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftProtobuf.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Speech/Pods-Speech-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D7376F491EC06AD174E07DB4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		D8EE167099E5A7E524284D70 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Speech/Pods-Speech-resources.sh\"\n";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -232,10 +341,34 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F53567922CB45F1002A0095 /* cloud_speech.proto in Sources */,
+				7F53567B22CB45F1002A0095 /* http.proto in Sources */,
+				7F53568A22CB45F1002A0095 /* error_details.proto in Sources */,
+				7F53568C22CB45F1002A0095 /* descriptor.proto in Sources */,
+				7F53567722CB45F1002A0095 /* cloud_speech.grpc.swift in Sources */,
 				D31E0EBA1D77AA2F006A50AB /* AudioController.swift in Sources */,
+				7F53567822CB45F1002A0095 /* cloud_speech.pb.swift in Sources */,
+				7F53568322CB45F1002A0095 /* client.pb.swift in Sources */,
 				D31E0EB81D778A56006A50AB /* SpeechRecognitionService.swift in Sources */,
+				7F53568122CB45F1002A0095 /* label.proto in Sources */,
+				7F53567D22CB45F1002A0095 /* monitored_resource.proto in Sources */,
+				7F53568022CB45F1002A0095 /* monitored_resource.pb.swift in Sources */,
+				7F53567322CB45F1002A0095 /* operations.pb.swift in Sources */,
 				D3E34EA51D7757CC00EF755D /* ViewController.swift in Sources */,
+				7F53568722CB45F1002A0095 /* error_details.pb.swift in Sources */,
+				7F53568622CB45F1002A0095 /* code.pb.swift in Sources */,
+				7F53567022CB45F1002A0095 /* operations.proto in Sources */,
+				7F53567122CB45F1002A0095 /* operations.grpc.swift in Sources */,
+				7F53567C22CB45F1002A0095 /* annotations.pb.swift in Sources */,
+				7F53568522CB45F1002A0095 /* status.pb.swift in Sources */,
 				D3E34EA11D77541D00EF755D /* AppDelegate.swift in Sources */,
+				7F53567E22CB45F1002A0095 /* http.pb.swift in Sources */,
+				7F53567A22CB45F1002A0095 /* client.proto in Sources */,
+				7F53567F22CB45F1002A0095 /* annotations.proto in Sources */,
+				7F53568222CB45F1002A0095 /* label.pb.swift in Sources */,
+				7F53568822CB45F1002A0095 /* status.proto in Sources */,
+				7F53568422CB45F1002A0095 /* code.proto in Sources */,
+				7F53568B22CB45F1002A0095 /* descriptor.pb.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,10 +475,13 @@
 		};
 		D34C17E11C948F5800D69BCA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C2D2368DBC8898A52FE6113B /* Pods-Speech.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				"HEADER_SEARCH_PATHS[arch=*]" = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -356,24 +492,25 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.google.speech-grpc-streaming";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Speech/Speech-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
 		D34C17E21C948F5800D69BCA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5E83ACE29B0D0DF0085BA8F2 /* Pods-Speech.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Speech/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.google.speech-grpc-streaming";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "Speech/Speech-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

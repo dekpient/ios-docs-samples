@@ -37,7 +37,7 @@ class AudioController {
 
     let session = AVAudioSession.sharedInstance()
     do {
-      try session.setCategory(AVAudioSessionCategoryRecord)
+      try session.setCategory(AVAudioSession.Category.record)
       try session.setPreferredIOBufferDuration(10)
     } catch {
       return -1

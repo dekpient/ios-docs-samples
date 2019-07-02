@@ -24,3 +24,4 @@ Podfile.lock
 Gemfile.lock
 google/
 functions/
+Carthage/

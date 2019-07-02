@@ -15,7 +15,6 @@
 //
 import UIKit
 import AVFoundation
-import googleapis
 
 let SAMPLE_RATE = 16000
 
@@ -31,7 +30,7 @@ class ViewController : UIViewController, AudioControllerDelegate {
   @IBAction func recordAudio(_ sender: NSObject) {
     let audioSession = AVAudioSession.sharedInstance()
     do {
-      try audioSession.setCategory(AVAudioSessionCategoryRecord)
+      try audioSession.setCategory(AVAudioSession.Category.record)
     } catch {
 
     }
@@ -55,31 +54,7 @@ class ViewController : UIViewController, AudioControllerDelegate {
       * 2 /* bytes/sample */);
 
     if (audioData.length > chunkSize) {
-      SpeechRecognitionService.sharedInstance.streamAudioData(audioData,
-                                                              completion:
-        { [weak self] (response, error) in
-            guard let strongSelf = self else {
-                return
-            }
-            
-            if let error = error {
-                strongSelf.textView.text = error.localizedDescription
-            } else if let response = response {
-                var finished = false
-                print(response)
-                for result in response.resultsArray! {
-                    if let result = result as? StreamingRecognitionResult {
-                        if result.isFinal {
-                            finished = true
-                        }
-                    }
-                }
-                strongSelf.textView.text = response.description
-                if finished {
-                    strongSelf.stopAudio(strongSelf)
-                }
-            }
-      })
+      SpeechRecognitionService.sharedInstance.streamAudioData(audioData)
       self.audioData = NSMutableData()
     }
   }
